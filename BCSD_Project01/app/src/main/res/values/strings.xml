@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">BCSD_Project01</string>
     :09
-    <string name = "mainstr"> Here os a randrom number \n between 0 and %d </string>
+    <string name="mainstr"> Here os a randrom number \n between 0 and %d </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
