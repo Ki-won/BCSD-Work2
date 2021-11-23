@@ -16,7 +16,7 @@ class cutFragment : Fragment() {
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
-    
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
     }

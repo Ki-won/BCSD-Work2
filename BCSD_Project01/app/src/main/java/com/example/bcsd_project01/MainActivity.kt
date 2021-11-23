@@ -5,10 +5,10 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 
 class MainActivity : AppCompatActivity() {
 
-    val manager = supportFragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,15 +33,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         random.setOnClickListener() {
-           showCutFrag()
+           showCutFrag(cutFragment())
         }
 
     }
 
-    fun showCutFrag(){
-        val transaction = manager.beginTransaction()
-        val frament = cutFragment()
-        transaction.replace(R.id.frameLayoutMainAt, frament)
+    fun showCutFrag(fragment: Fragment){
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.frameLayoutMainAt, fragment)
         transaction.addToBackStack(null)
         transaction.commit()
     }
