@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         val toast = findViewById<Button>(R.id.button_toast)
         val count = findViewById<Button>(R.id.button_count)
         val random = findViewById<Button>(R.id.button_random)
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         random.setOnClickListener() {
-           showCutFrag(cutFragment())
+            setDataFrag(CutFrag(),number)
         }
 
     }
@@ -43,5 +44,14 @@ class MainActivity : AppCompatActivity() {
         transaction.replace(R.id.frameLayoutMainAt, fragment)
         transaction.addToBackStack(null)
         transaction.commit()
+    }
+
+    fun setDataFrag(fragment: Fragment, fragNum:Int){
+        val bundle = Bundle()
+        bundle.putInt("Fragnum", fragNum)
+
+        fragment.arguments = bundle
+        showCutFrag(fragment)
+
     }
 }
