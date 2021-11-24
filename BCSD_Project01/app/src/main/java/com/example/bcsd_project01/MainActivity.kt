@@ -1,5 +1,6 @@
 package com.example.bcsd_project01
 
+
 import android.content.DialogInterface
 import android.os.Bundle
 import android.widget.Button
@@ -8,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,18 +22,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         transaction= fragmentManager.beginTransaction()
-        transaction.add<CutFrag>(R.id.frame_Layout_Main)
-        transaction.commit()
-
+       // transaction.add<CutFrag>(R.id.frame_Layout_Main)
+        //transaction.commit()
         //mainActivity의 레이아웃주소들
         val toastBtnId = findViewById<Button>(R.id.button_toast)
         val countBtnId = findViewById<Button>(R.id.button_count)
         val randomBtnId = findViewById<Button>(R.id.button_random)
         val countingText = findViewById<TextView>(R.id.show_counting_Text)
-
-
 
         //각 버튼별 기능
         toastBtnId.setOnClickListener {
@@ -45,9 +43,9 @@ class MainActivity : AppCompatActivity() {
             getDlg.setNeutralButton("출력", DialogInterface.OnClickListener {dialog, which ->
                 Toast.makeText(this@MainActivity, " 토스트먹고싶다", Toast.LENGTH_SHORT).show()
             })
-
             getDlg.show()
         }
+
 
         countBtnId.setOnClickListener {
             countNumber++
@@ -55,12 +53,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         randomBtnId.setOnClickListener {
-        transaction.replace(R.id.frame_Layout_Main, CutFrag())
+        transaction.add(R.id.frame_Layout_Main, CutFrag())
         transaction.commit()
+
         }
 
-        fun driverNumber(): Int{
-            return countNumber
-        }
+
+    }
+    fun driverNumber(): Int{
+        return countNumber
     }
 }

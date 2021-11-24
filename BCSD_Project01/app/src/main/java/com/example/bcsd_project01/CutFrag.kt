@@ -14,14 +14,18 @@ class CutFrag : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
+
+
     }
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?
-                              , savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater,
+                              container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
+        val getCountNum =(activity as? MainActivity)?.driverNumber()
         val v = inflater.inflate(R.layout.fragment_cut, container, false)
         val show_num = v.findViewById<TextView>(R.id.fragment_sohw_couningText)// 문장 텍스트 뷰의 주소 값
         val main_text = v.findViewById<TextView>(R.id.fragment_show_stringText)//랜덤된 숫자를 표시하는 텍스트 뷰의 주소 값
 
-        val improtstr1 = getString(R.string.CutFrag_strText, 6)
+        val improtstr1 = getString(R.string.CutFrag_strText,getCountNum )
         var random_number: Int? = 0
 
         show_num.text = improtstr1//변할 텍스트에 두개의 문자열을 합쳐서 넣는다.
